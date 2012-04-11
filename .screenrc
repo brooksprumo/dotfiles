@@ -1,0 +1,34 @@
+#
+# .screenrc -- Various screen settings...
+#
+
+# Change the escape key to ` (backtick)
+#
+escape ``
+
+# Use the altscreen.  This prevents scrolling past vim windows
+#
+altscreen on
+
+# Turn on scrolling for the screen
+#
+termcapinfo xterm* ti@:te@
+
+# Set the hardstatus for the title bar
+# includes screen number and name
+#
+hardstatus string "[%n%?: %t%?] %h"
+
+# Set the caption for the bottom status line
+# includes the screen number, screen name, and the hostname
+#
+caption always "%-w%{= BW}%50L>%n %t%{-}%+w %=[%H]%<"
+
+# Disable the startup message
+#
+startup_message off
+
+# Disable the visual bell
+#
+vbell off
+
