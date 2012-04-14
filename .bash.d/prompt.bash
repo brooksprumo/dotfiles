@@ -20,11 +20,12 @@ fi
 color_dir="\[\e[0;37;46m\]"
 color_host="\[\e[0;37;45m\]"
 color_jobs="\[\e[0;37;43m\]"
+color_git="\[\e[0;37;44m\]"
 color_none="\[\e[0m\]"
 
 # set the prompt
 #
-export PS1="$color_jobs\j$color_none $color_user\u$color_none $color_host\h$color_none $color_dir\w$color_none "
+export PS1="$color_jobs\j$color_none $color_user\u$color_none $color_host\h$color_none $color_git$(__git_ps1)$color_none $color_dir\w$color_none "
 
 # Set the title to user@host:dir
 #
