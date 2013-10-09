@@ -30,6 +30,13 @@ shopt -s dotglob
 if [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion
 fi
+if [ -d /etc/bash_completion.d ]; then
+	for file in /etc/bash_completion.d/*; do
+		if [ -f $file ]; then
+			source $file
+		fi
+	done
+fi
 
 
 
