@@ -17,5 +17,4 @@
 
 # ignore the local bash scipts/settings file
 #
-.bash.d/aa_local.bash
-.bash.d/zz_local.bash
+.bash.d/*_local.bash
