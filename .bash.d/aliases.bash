@@ -76,23 +76,3 @@ alias "splitape2flac"="cuebreakpoints --input-format cue --append-gaps *.cue | s
 # Fix file permissions on files and folders
 #
 alias "fixperms"="find . \( -type d ! -perm 755 -ok chmod --verbose 755 {} \; \) , \( -type f ! -name .directory ! -name .DS_Store ! -perm 644 -ok chmod --verbose 644 {} \; \)"
-
-if [ "$TERM" != dumb ] && [ -x /usr/bin/grc ] ; then
-	alias 'cl'='/usr/bin/grc -es --colour=auto'
-	alias 'configure'='cl ./configure'
-	alias 'diff'='cl diff'
-	alias 'make=''cl make'
-	alias 'gcc'='cl gcc'
-	alias 'g++'='cl g++'
-	alias 'as'='cl as'
-	alias 'gas'='cl gas'
-	alias 'ld'='cl ld'
-	alias 'netstat'='cl netstat'
-	alias 'ping'='cl ping'
-	alias 'traceroute'='cl /usr/sbin/traceroute'
-	alias 'cat'='cl cat'
-	alias 'tail'='cl tail'
-	alias 'perl'='cl perl'
-	alias 'python'='cl python'
-fi
-
