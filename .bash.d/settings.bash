@@ -27,17 +27,20 @@ shopt -s dotglob
 
 # Source the bash completion file(s) if they exist
 #
-if [ -f /etc/bash_completion ]; then
-	source /etc/bash_completion
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+	source /usr/share/bash-completion/bash_completion
+else
+	if [ -f /etc/bash_completion ]; then
+		source /etc/bash_completion
+	fi
+	if [ -d /etc/bash_completion.d ]; then
+		for file in /etc/bash_completion.d/*; do
+			if [ -f $file ]; then
+				source $file
+			fi
+		done
+	fi
 fi
-if [ -d /etc/bash_completion.d ]; then
-	for file in /etc/bash_completion.d/*; do
-		if [ -f $file ]; then
-			source $file
-		fi
-	done
-fi
-
 
 
 #
