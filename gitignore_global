@@ -1,0 +1,20 @@
+# Mac
+#
+.DS_Store
+
+# Linux
+#
+.directory
+
+# Windows
+#
+Thumbs.db
+Desktop.ini
+
+# vim
+#
+*.swp
+.netrwhist
+
+# auto-generated tag files
+tags
