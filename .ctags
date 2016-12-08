@@ -1,5 +1,6 @@
-
---c++-kinds=+p
---fields=+iaS
+--recurse=yes
+--c-kinds=+cdefgmnpstu
+--c++-kinds=+cdefgmnpstu
+--fields=+afisS
 --extra=+q
-
+--exclude=.git
