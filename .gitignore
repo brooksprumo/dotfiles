@@ -1,3 +1,3 @@
 # ignore the local bash scipts/settings file
 #
-.bash.d/*local.bash
+bash.d/*local.bash
