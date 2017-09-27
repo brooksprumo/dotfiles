@@ -8,13 +8,15 @@
 
 # Windows
 #
-Thumbs.db
 Desktop.ini
+Thumbs.db
 
 # vim
 #
 *.swp
+.lvimrc
 .netrwhist
 
-# auto-generated tag files
+# generated tag files
+#
 tags
