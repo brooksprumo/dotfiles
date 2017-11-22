@@ -13,7 +13,7 @@ Thumbs.db
 
 # vim
 #
-*.swp
+*.sw*
 .lvimrc
 .netrwhist
 
