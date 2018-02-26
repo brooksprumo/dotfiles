@@ -20,3 +20,7 @@ Thumbs.db
 # generated tag files
 #
 tags
+
+# projections
+#
+.projections.json
