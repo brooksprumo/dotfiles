@@ -10,7 +10,7 @@ set smartcase
 " show (and set) invisible characters
 "
 set listchars=tab:│⬞,trail:•,extends:❯,precedes:❮
-set showbreak=↪\ " comment to make the space character evident
+set showbreak=↪\ " comment added to make the space character more obvious
 set list
 set breakindent
 
@@ -36,11 +36,6 @@ set lazyredraw
 "
 set splitbelow
 set splitright
-
-" set colorscheme
-"
-colorscheme solarized
-set background=dark
 
 " show bracket matches
 " add <> to the match pairs
@@ -73,6 +68,10 @@ set noequalalways
 " use the mouse
 "
 set mouse=a
+
+" the statusline will display the mode, so don't show it twice
+"
+set noshowmode
 
 " set <leader> *before* any mappings
 "

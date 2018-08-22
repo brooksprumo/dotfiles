@@ -51,3 +51,18 @@ call yankstack#setup()
 " localvimrc mappings and settings
 "
 let g:localvimrc_persistent = 2
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Solarized mappings and settings
+"
+colorscheme solarized
+set background=dark
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline mappings and settings
+"
+let g:airline_theme='solarized'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
