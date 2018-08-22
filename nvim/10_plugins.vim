@@ -1,7 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
 Plug 'embear/vim-localvimrc'
+Plug 'iCyMind/NeoSolarized'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
