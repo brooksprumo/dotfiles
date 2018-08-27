@@ -1,6 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'embear/vim-localvimrc'
+Plug 'godlygeek/tabular'
 Plug 'iCyMind/NeoSolarized'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'scrooloose/nerdcommenter'
