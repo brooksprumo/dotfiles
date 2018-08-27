@@ -56,7 +56,6 @@ let g:localvimrc_persistent = 2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Solarized mappings and settings
 "
-set termguicolors
 set background=dark
 colorscheme NeoSolarized
 
