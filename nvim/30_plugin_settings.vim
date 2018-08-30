@@ -50,7 +50,7 @@ call yankstack#setup()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " localvimrc mappings and settings
 "
-let g:localvimrc_persistent = 2
+let g:localvimrc_persistent = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,6 +63,7 @@ colorscheme NeoSolarized
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline mappings and settings
 "
-let g:airline_theme='solarized'
+let g:airline_theme = 'badwolf'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#whitespace#mixed_indent_algo = 2
