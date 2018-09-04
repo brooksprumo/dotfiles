@@ -67,3 +67,7 @@ let g:airline_theme = 'badwolf'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
+
+" the statusline will display the mode, so don't show it twice
+"
+set noshowmode

@@ -69,10 +69,6 @@ set noequalalways
 "
 set mouse=a
 
-" the statusline will display the mode, so don't show it twice
-"
-set noshowmode
-
 " set <leader> *before* any mappings
 "
 let mapleader = "\<Space>"

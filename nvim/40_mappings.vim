@@ -37,6 +37,11 @@ nnoremap <silent> <c-l> :wincmd l<CR>
 "
 nmap Y y$
 
+" double left mouse click will visually select and highlight/search word under cursor
+" (from https://stackoverflow.com/questions/6876850/how-to-highlight-all-occurrences-of-a-word-in-vim-on-double-clicking)
+"
+nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<CR>:set hlsearch<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
