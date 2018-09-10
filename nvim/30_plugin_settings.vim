@@ -39,6 +39,38 @@ let g:NERDTrimTrailingWhitespace = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" deoplete mappings and settings
+"
+let g:deoplete#enable_at_startup = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LanguageClient mappings and settings
+"
+nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+
+let g:LanguageClient_serverCommands = {
+	\ 'p': ['clangd'],
+	\ 'c': ['clangd'],
+	\ 'ec': ['clangd'],
+	\ 'cpp': ['clangd'],
+	\ }
+
+" signcolumn will appear each time Clangd sends a warning or provides a diagnostic and the text will be shifted by one column each time signcolumn is triggered.  To prevent this shift and always show the signcolumn
+"
+set signcolumn=yes
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " yankstack mappings and settings
 "
 let g:yankstack_map_keys = 0
@@ -67,6 +99,7 @@ let g:airline_theme = 'badwolf'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
+let g:airline#extensions#languageclient#enabled = 1
 
 " the statusline will display the mode, so don't show it twice
 "
