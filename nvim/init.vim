@@ -232,7 +232,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
 let g:airline#extensions#languageclient#enabled = 1
 
-" the statusline will display the mode, so don't show it twice
+" airline will display the mode; don't show it twice
 "
 set noshowmode
 
@@ -258,11 +258,6 @@ nnoremap <silent> <leader><Tab> :e #<CR>
 " remove trailing whitespace
 "
 nnoremap <silent> <leader>$ :call <SID>Preserve("%s/\\s\\+$//e")<CR>
-
-" toggle show/hide hidden characters
-"
-nnoremap <silent> <F9>      :set list!<CR>
-inoremap <silent> <F9> <ESC>:set list!<CR>i
 
 " insert the data and time
 "
