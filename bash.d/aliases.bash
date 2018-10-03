@@ -39,7 +39,7 @@ case $SYSTYPE in
 	# SunOS aliases
 	#
 	SunOS )
-	alias "ls"="ls -F"
+	alias "ls"="ls -Fh"
 	;;
 
 	# All other OSs aliases
