@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Check if params are sufficient enough to go ahead.
+targetBranch=$1
+test -z $targetBranch && echo "ERROR: Please provide the target branch with which you want to update your current branch." 1>&2 && exit 1
+
+# Find which is your current branch
+if currentBranch=$(git symbolic-ref --short -q HEAD)
+then
+  echo Pulling updates from the target branch $targetBranch ...
+
+  git remote update -p
+  git checkout $targetBranch
+  git pull
+  git checkout $currentBranch
+  git rebase $targetBranch
+
+  echo Refreshed $currentBranch onto $targetBranch
+else
+  echo ERROR: Cannot find the current branch!
+fi
