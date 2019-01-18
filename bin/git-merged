@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Check if params are sufficient enough to go ahead.
+targetBranch=$1
+test -z $targetBranch && echo "ERROR: Missing target branch!  Provide the target branch of the merge." 1>&2 && exit 1
+
+# Find which is your current branch
+if currentBranch=$(git symbolic-ref --short -q HEAD)
+then
+  echo Pulling updates from the target branch $targetBranch ...
+  git remote update -p > /dev/null
+  git checkout $targetBranch > /dev/null
+  git pull > /dev/null
+
+  echo Deleting $currentBranch...
+  git branch -d $currentBranch
+else
+  echo "ERROR: Cannot find the current branch!  Are you in a Git repository?" 1>&2 && exit 1
+fi
