@@ -132,7 +132,7 @@ nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>ge :Gedit<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gl :Glog<CR>
+nnoremap <leader>gl :0Glog<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gp :Gpush<CR>
 
