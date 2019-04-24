@@ -26,6 +26,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'godlygeek/tabular'
 Plug 'iCyMind/NeoSolarized'
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
@@ -108,6 +109,9 @@ set shiftwidth=4
 set softtabstop=0
 set noexpandtab
 set nosmarttab
+
+" don't use tabs for Meson
+autocmd Filetype meson setlocal expandtab
 
 " do not wrap lines (but when we do, don't split words)
 "
