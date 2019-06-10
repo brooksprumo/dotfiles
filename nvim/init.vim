@@ -28,7 +28,7 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -38,7 +38,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && make clean; ruby extconf.rb && make' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 
 if has('nvim')
 	Plug 'Shougo/denite.nvim'
