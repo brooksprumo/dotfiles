@@ -63,8 +63,8 @@ set smartcase
 
 " show (and set) invisible characters
 "
-set listchars=tab:│⬞,trail:•,extends:❯,precedes:❮
-set showbreak=↪\ " comment added to make the space character more obvious
+let &showbreak='↪ '
+set listchars=tab:│⬞,trail:•,extends:»,precedes:«,nbsp:⦸
 set list
 set breakindent
 
