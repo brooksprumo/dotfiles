@@ -23,7 +23,7 @@ else
 endif
 
 Plug 'embear/vim-localvimrc'
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'iCyMind/NeoSolarized'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
