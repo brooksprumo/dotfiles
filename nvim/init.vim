@@ -25,6 +25,7 @@ endif
 Plug 'embear/vim-localvimrc'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'iCyMind/NeoSolarized'
+Plug 'itchyny/lightline.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
 Plug 'scrooloose/nerdcommenter'
@@ -35,8 +36,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && make clean; ruby extconf.rb && make' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 
@@ -201,14 +200,13 @@ colorscheme NeoSolarized
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Airline mappings and settings
+" Lightline mappings and settings
 "
-let g:airline_theme = 'badwolf'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#whitespace#mixed_indent_algo = 2
+let g:lightline = {
+	\ 'colorscheme': 'solarized',
+	\ }
 
-" airline will display the mode; don't show it twice
+" lightline will display the mode; don't show it twice
 "
 set noshowmode
 
