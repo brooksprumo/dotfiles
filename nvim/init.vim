@@ -39,11 +39,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && make clean; ruby extconf.rb && make' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 
-if has('nvim')
-	Plug 'Shougo/denite.nvim'
-	Plug 'Shougo/deoplete.nvim'
-endif
-
 call plug#end()
 
 
@@ -164,12 +159,6 @@ nnoremap <silent> <leader>nm :NERDTreeMirror<CR>
 "
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" deoplete mappings and settings
-"
-let g:deoplete#enable_at_startup = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
