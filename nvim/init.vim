@@ -193,8 +193,21 @@ colorscheme NeoSolarized
 " Lightline mappings and settings
 "
 let g:lightline = {
-	\ 'colorscheme': 'solarized',
-	\ }
+\	'colorscheme': 'powerline',
+\	'active': {
+\		'right': [
+\			['lineinfo'],
+\			['gitbranch'],
+\			['fileformat', 'fileencoding', 'filetype'],
+\		],
+\	},
+\	'inactive': {
+\		'right': [],
+\	},
+\	'component_function' : {
+\		'gitbranch': 'fugitive#head',
+\	},
+\ }
 
 " lightline will display the mode; don't show it twice
 "
