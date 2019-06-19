@@ -195,6 +195,10 @@ colorscheme NeoSolarized
 let g:lightline = {
 \	'colorscheme': 'powerline',
 \	'active': {
+\		'left': [
+\			['mode', 'paste'],
+\			['readonly', 'relativepath', 'modified'],
+\		],
 \		'right': [
 \			['lineinfo'],
 \			['gitbranch'],
