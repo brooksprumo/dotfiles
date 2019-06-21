@@ -206,6 +206,9 @@ let g:lightline = {
 \		],
 \	},
 \	'inactive': {
+\		'left': [
+\			['filename', 'modified'],
+\		],
 \		'right': [],
 \	},
 \	'component_function' : {
