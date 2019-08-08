@@ -63,11 +63,11 @@ set listchars=tab:│⬞,trail:•,extends:»,precedes:«,nbsp:⦸
 set list
 set breakindent
 
-" Show the line and column number of the cursor position
+" show the line and column number of the cursor position
 "
 set ruler
 
-" Show the relative line number in front of each line
+" show the relative line number in front of each line
 "
 set number
 set relativenumber
@@ -113,13 +113,17 @@ autocmd Filetype meson setlocal expandtab
 set nowrap
 set linebreak
 
-" Do not resize windows after splitting/closing a window
+" do not resize windows after splitting/closing a window
 "
 set noequalalways
 
 " use the mouse
 "
 set mouse=a
+
+" highlight the current line
+"
+set cursorline
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
