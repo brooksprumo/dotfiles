@@ -129,15 +129,15 @@ set cursorline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive mappings and settings
 "
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>ge :Gedit<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gl :0Glog<CR>
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gl :0Gclog<CR>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gp :Git push<CR>
 
 " Autoclose fugitive buffers when they go inactive
 "
