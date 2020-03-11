@@ -258,6 +258,10 @@ nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 
+" create a new tab
+"
+nnoremap <silent> <leader>t :tabnew<CR>
+
 " double left mouse click will visually select and highlight/search word under cursor
 " (from https://stackoverflow.com/questions/6876850/how-to-highlight-all-occurrences-of-a-word-in-vim-on-double-clicking)
 "
