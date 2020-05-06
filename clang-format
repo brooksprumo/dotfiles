@@ -1,11 +1,13 @@
-﻿---
+---
 BasedOnStyle: LLVM
-AlignConsecutiveMacros: 'true'
 AlignConsecutiveAssignments: 'false'
 AlignConsecutiveDeclarations: 'false'
+AlignConsecutiveMacros: 'true'
 AlignEscapedNewlines: Left
 AllowShortBlocksOnASingleLine: 'false'
+AllowShortCaseLabelsOnASingleLine: 'false'
 AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: 'WithoutElse'
 AllowShortLambdasOnASingleLine: Inline
 AllowShortLoopsOnASingleLine: 'true'
 AlwaysBreakAfterReturnType: None
