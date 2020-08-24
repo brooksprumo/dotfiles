@@ -59,7 +59,7 @@ set smartcase
 " show (and set) invisible characters
 "
 let &showbreak='↪ '
-set listchars=tab:│⬞,trail:•,extends:»,precedes:«,nbsp:⦸
+set listchars=tab:│\ ,trail:•,extends:»,precedes:«,nbsp:⦸
 set list
 set breakindent
 
