@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Sync a branch in a forked repo with its upstream
+#
+# REQUIRES the upstream to be a remote titled 'upstream'
+#
+# USAGE
+#     $ git sync <branch>
+#
+
+die() {
+	echo $1 >&2
+	exit 1
+}
+
+target_branch=$1
+test -z $target_branch && die "ERROR: Specify a branch to sync."
+
+current_branch=$(git symbolic-ref --short -q HEAD) || die "ERROR: Not in a Git repository.  Navigate to a Git repository and try again."
+
+git fetch upstream || die "ERROR: A remote named \"upstream\" does not exist."
+git checkout $target_branch || die "ERROR: Branch does not exist."
+git merge --ff-only upstream/$target_branch
+git checkout $current_branch
