@@ -226,6 +226,13 @@ set noshowmode
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Loupe mappings and settings
+"
+let g:LoupeClearHighlightMap = 1
+nmap <leader>ll <Plug>(LoupeClearHighlight)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 "
 
