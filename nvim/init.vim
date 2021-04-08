@@ -28,6 +28,9 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'itchyny/lightline.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/lsp_extensions.nvim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
@@ -41,6 +44,34 @@ Plug 'wincent/loupe'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 
 call plug#end()
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure LSP
+" https://github.com/neovim/nvim-lspconfig#rust_analyzer
+"
+lua <<EOF
+
+-- nvim_lsp object
+local nvim_lsp = require'lspconfig'
+
+-- function to attach completion when setting up lsp
+local on_attach = function(client)
+	require'completion'.on_attach(client)
+end
+
+-- Enable rust_analyzer
+nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
+
+-- Enable diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = true,
+		signs = true,
+		update_in_insert = true,
+	}
+)
+EOF
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,9 +136,6 @@ set softtabstop=0
 set noexpandtab
 set nosmarttab
 
-" don't use tabs for Meson
-autocmd Filetype meson setlocal expandtab
-
 " do not wrap lines (but when we do, don't split words)
 "
 set nowrap
@@ -124,6 +152,37 @@ set mouse=a
 " highlight the current line
 "
 set cursorline
+
+" Set completeopt to have a better completion experience
+" menuone: popup even when there's only one match
+" noinsert: Do not insert text until a selection is made
+" noselect: Do not select, force user to select one from the menu
+"
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing extra messages when using completion
+"
+set shortmess+=c
+
+" have a fixed column for the diagnostics to appear in
+"
+set signcolumn=yes
+
+" Set updatetime for CursorHold
+"
+set updatetime=1000
+
+" Show diagnostic popup on cursor hold
+"
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
+" do not use tabs for Meson
+"
+autocmd Filetype meson setlocal expandtab
+
+" auto-format *.rs (rust) files prior to saving them
+"
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -273,6 +332,30 @@ nnoremap <silent> <leader>T :tabnew<CR>
 " (from https://stackoverflow.com/questions/6876850/how-to-highlight-all-occurrences-of-a-word-in-vim-on-double-clicking)
 "
 nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<CR>:set hlsearch<CR>
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" use <Tab> as trigger keys for completion
+"
+imap <Tab> <Plug>(completion_smart_tab)
+imap <S-Tab> <Plug>(completion_smart_s_tab)
+
+" lsp mappings
+"
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gT    <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gI    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+"nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+"nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
