@@ -1,20 +1,24 @@
 #!/bin/sh
+#
+# Re-rebase! Pull down the latest changes from a target branch and rebase your
+# branch on top.
+#
+# USAGE
+#     $ git rerebase <branch>
+#
 
-# Check if params are sufficient enough to go ahead.
-targetBranch=$1
-test -z $targetBranch && echo "ERROR: Missing target branch!  Provide the target branch to re-rebase onto." 1>&2 && exit 1
+die() {
+	echo $1 >&2
+	exit 1
+}
 
-# Find which is your current branch
-if currentBranch=$(git symbolic-ref --short -q HEAD)
-then
-  echo Pulling updates from the target branch $targetBranch ...
-  git remote update -p > /dev/null
-  git checkout $targetBranch > /dev/null
-  git pull > /dev/null
-  git checkout $currentBranch > /dev/null
+target_branch=$1
+test -z $target_branch && die "ERROR: Specify a target branch to rebase on top of."
 
-  echo Re-rebasing $currentBranch onto $targetBranch...
-  git rebase $targetBranch
-else
-  echo "ERROR: Cannot find the current branch!  Are you in a Git repository?" 1>&2 && exit 1
-fi
+current_branch=$(git symbolic-ref --short -q HEAD) || die "ERROR: Not in a Git repository.  Navigate to a Git repository and try again."
+
+git fetch origin $target_branch || die "ERROR: The target branch could not be fetched.  Check spelling/etc and try again."
+git checkout $target_branch || die "ERROR: The target branch does not exist."
+git merge --ff-only
+git checkout $current_branch
+git rebase $target_branch
