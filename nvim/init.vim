@@ -176,13 +176,17 @@ set updatetime=1000
 "
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
-" do not use tabs for Meson
+" Enable type inlay hints
 "
-autocmd Filetype meson setlocal expandtab
+autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 
 " auto-format *.rs (rust) files prior to saving them
 "
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
+
+" do not use tabs for Meson
+"
+autocmd Filetype meson setlocal expandtab
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
