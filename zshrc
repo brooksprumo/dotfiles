@@ -11,3 +11,6 @@ alias "lld"="ll | grep ^d"
 alias "df"="df -h"
 alias "du"="du -h"
 alias "psg"="ps aux | grep"
+
+path+=~/bin
+export PATH
