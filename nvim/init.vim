@@ -193,15 +193,16 @@ autocmd Filetype meson setlocal expandtab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive mappings and settings
 "
-nnoremap <leader>gs :Git<CR>
-nnoremap <leader>gr :Gread<CR>
-nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>ge :Gedit<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gl :0Gclog<CR>
-nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gs  :Git<CR>
+nnoremap <leader>gr  :Gread<CR>
+nnoremap <leader>gw  :Gwrite<CR>
+nnoremap <leader>ge  :Gedit<CR>
+nnoremap <leader>gdd :Gdiff<CR>
+nnoremap <leader>gda :Gdiff !^<CR>
+nnoremap <leader>gc  :Gcommit<CR>
+nnoremap <leader>gl  :0Gclog<CR>
+nnoremap <leader>gb  :Git blame<CR>
+nnoremap <leader>gp  :Git push<CR>
 
 " Autoclose fugitive buffers when they go inactive
 "
