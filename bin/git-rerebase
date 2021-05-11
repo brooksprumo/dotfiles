@@ -15,10 +15,8 @@ die() {
 target_branch=$1
 test -z $target_branch && die "ERROR: Specify a target branch to rebase on top of."
 
-current_branch=$(git symbolic-ref --short -q HEAD) || die "ERROR: Not in a Git repository.  Navigate to a Git repository and try again."
-
 git fetch origin $target_branch || die "ERROR: The target branch could not be fetched.  Check spelling/etc and try again."
-git checkout $target_branch || die "ERROR: The target branch does not exist."
+git switch $target_branch || die "ERROR: The target branch does not exist."
 git merge --ff-only
-git checkout $current_branch
+git switch -
 git rebase $target_branch
