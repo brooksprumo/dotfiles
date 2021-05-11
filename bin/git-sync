@@ -16,9 +16,7 @@ die() {
 target_branch=$1
 test -z $target_branch && die "ERROR: Specify a branch to sync."
 
-current_branch=$(git symbolic-ref --short -q HEAD) || die "ERROR: Not in a Git repository.  Navigate to a Git repository and try again."
-
 git fetch upstream || die "ERROR: A remote named \"upstream\" does not exist."
-git checkout $target_branch || die "ERROR: Branch does not exist."
+git switch $target_branch || die "ERROR: Branch does not exist."
 git merge --ff-only upstream/$target_branch
-git checkout $current_branch
+git switch -
