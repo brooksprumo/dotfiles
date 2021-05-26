@@ -26,6 +26,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'iCyMind/NeoSolarized'
 Plug 'itchyny/lightline.vim'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
 Plug 'neovim/nvim-lspconfig'
@@ -40,7 +41,6 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && make clean; ruby extconf.rb && make' }
 Plug 'wincent/loupe'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 
@@ -298,6 +298,16 @@ nmap <leader>ll <Plug>(LoupeClearHighlight)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Clap mappings and settings
+"
+nnoremap <silent> <leader>cb :Clap buffers<CR>
+nnoremap <silent> <leader>cf :Clap files<CR>
+nnoremap <silent> <leader>cg :Clap grep2<CR>
+nnoremap <silent> <leader>cl :Clap blines<CR>
+nnoremap <silent> <leader>cy :Clap yanks<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 "
 
@@ -355,16 +365,16 @@ imap <S-Tab> <Plug>(completion_smart_s_tab)
 
 " lsp mappings
 "
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gy <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gI <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gk <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <leader>gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>gy <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K          <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <leader>gk <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <leader>gr <cmd>lua vim.lsp.buf.references()<CR>
 "nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
 "nnoremap <silent> gW <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> ga <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>ga <cmd>lua vim.lsp.buf.code_action()<CR>
 
 
 
