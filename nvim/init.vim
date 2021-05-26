@@ -307,6 +307,21 @@ nnoremap <silent> <leader>cy :Clap yanks<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LSP mappings
+"
+nnoremap <silent> <leader>ll <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>ld <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <leader>la <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>lt <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <leader>lk <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> K          <cmd>lua vim.lsp.buf.hover()<CR>
+"nnoremap <silent> <leader>l0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
+"nnoremap <silent> <leader>lW <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 "
 
@@ -361,20 +376,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "
 imap <Tab> <Plug>(completion_smart_tab)
 imap <S-Tab> <Plug>(completion_smart_s_tab)
-
-" lsp mappings
-"
-nnoremap <silent> <leader>gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <leader>gy <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> K          <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <leader>gk <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <leader>gr <cmd>lua vim.lsp.buf.references()<CR>
-"nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
-"nnoremap <silent> gW <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> <leader>ga <cmd>lua vim.lsp.buf.code_action()<CR>
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
