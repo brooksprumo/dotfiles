@@ -301,7 +301,7 @@ let g:LoupeClearHighlightMap = 1
 "
 nnoremap <silent> <leader>tb :Clap buffers<CR>
 nnoremap <silent> <leader>tf :Clap files<CR>
-nnoremap <silent> <leader>tg :Clap grep2<CR>
+nnoremap <silent> <leader>tg :Clap grep<CR>
 nnoremap <silent> <leader>tl :Clap blines<CR>
 nnoremap <silent> <leader>ty :Clap yanks<CR>
 
