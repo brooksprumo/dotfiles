@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Sync an upstream branch, push it to origin, then rebase on top of it.
+#
+# USAGE
+#     $ git sync-and-rebase <branch>
+#
+
+die() {
+	echo $1 >&2
+	exit 1
+}
+
+target_branch=$1
+test -z $target_branch && die "ERROR: Specify a target branch to sync and rebase on top of."
+
+git sync $target_branch || die "ERROR: Sync failed."
+
+git switch $target_branch || die "ERROR: Failed to switch to target branch."
+git push origin HEAD || die "ERROR: Failed to push target branch to origin."
+git switch - || die "ERROR: Failed to switch back to original branch."
+
+git rebase $target_branch
