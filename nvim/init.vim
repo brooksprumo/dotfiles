@@ -24,6 +24,7 @@ endif
 
 Plug 'embear/vim-localvimrc'
 Plug 'folke/lsp-colors.nvim'
+Plug 'glepnir/lspsaga.nvim'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'iCyMind/NeoSolarized'
 Plug 'itchyny/lightline.vim'
@@ -73,6 +74,11 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 		update_in_insert = true,
 	}
 )
+
+-- LspSaga config
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
+
 EOF
 
 
@@ -328,12 +334,17 @@ nnoremap <silent> <leader>ty :Clap yanks<CR>
 "
 nnoremap <silent> <leader>ll <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>ld <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <leader>la <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>la :Lspsaga code_action<CR>
 nnoremap <silent> <leader>lt <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <leader>lk <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <leader>lk :Lspsaga signature_help<CR>
 nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <leader>lf :Lspsaga lsp_finder<CR>
+nnoremap <silent> <leader>lp :Lspsaga preview_definition<CR>
+"nnoremap <silent> <leader>lr :Lspsaga rename<CR>
+"nnoremap <silent> K          :Lspsaga hover_doc<CR>
 nnoremap <silent> K          <cmd>lua vim.lsp.buf.hover()<CR>
+
 "nnoremap <silent> <leader>l0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
 "nnoremap <silent> <leader>lW <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
