@@ -23,6 +23,7 @@ else
 endif
 
 Plug 'embear/vim-localvimrc'
+Plug 'folke/lsp-colors.nvim'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'iCyMind/NeoSolarized'
 Plug 'itchyny/lightline.vim'
