@@ -23,7 +23,6 @@ else
 endif
 
 Plug 'embear/vim-localvimrc'
-Plug 'glepnir/lspsaga.nvim'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'iCyMind/NeoSolarized'
 Plug 'itchyny/lightline.vim'
@@ -49,6 +48,9 @@ Plug 'projekt0n/github-nvim-theme'
 
 call plug#end()
 
+" TODO: fix color for TODO
+" TODO: make Tab launch omnifunc
+" TODO: have the omnifunc listing be sorted, alphabetically
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure LSP
@@ -56,29 +58,27 @@ call plug#end()
 "
 lua <<EOF
 
--- nvim_lsp object
-local nvim_lsp = require'lspconfig'
-
 -- function to attach completion when setting up lsp
-local on_attach = function(client)
-	require'completion'.on_attach(client)
+local on_attach = function(client, bufnr)
+	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
 -- Enable rust_analyzer
-nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
+require('lspconfig').rust_analyzer.setup({ on_attach=on_attach })
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics, {
 		virtual_text = true,
 		signs = true,
-		update_in_insert = true,
+		update_in_insert = false,
 	}
 )
 
--- LspSaga config
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
+-- Hover doc popup
+local pop_opts = { border = "rounded", max_width = 80 }
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
 EOF
 
@@ -195,15 +195,15 @@ set signcolumn=yes
 
 " Set updatetime for CursorHold
 "
-set updatetime=1000
+set updatetime=333
 
 " Show diagnostic popup on cursor hold
 "
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+"autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " Enable type inlay hints
 "
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
+autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require('lsp_extensions').inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 
 " auto-format *.rs (rust) files prior to saving them
 "
@@ -335,19 +335,14 @@ nnoremap <silent> <leader>ty :Clap yanks<CR>
 "
 nnoremap <silent> <leader>ll <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>ld <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <leader>la :Lspsaga code_action<CR>
+"nnoremap <silent> <leader>la :Lspsaga code_action<CR>
 nnoremap <silent> <leader>lt <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <leader>lk :Lspsaga signature_help<CR>
+nnoremap <silent> <leader>lk <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> <leader>lf :Lspsaga lsp_finder<CR>
-nnoremap <silent> <leader>lp :Lspsaga preview_definition<CR>
-"nnoremap <silent> <leader>lr :Lspsaga rename<CR>
-"nnoremap <silent> K          :Lspsaga hover_doc<CR>
+"nnoremap <silent> <leader>lf :Lspsaga lsp_finder<CR>
+"nnoremap <silent> <leader>lp :Lspsaga preview_definition<CR>
 nnoremap <silent> K          <cmd>lua vim.lsp.buf.hover()<CR>
-
-"nnoremap <silent> <leader>l0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
-"nnoremap <silent> <leader>lW <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -403,8 +398,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " use <Tab> as trigger keys for completion
 "
-imap <Tab> <Plug>(completion_smart_tab)
-imap <S-Tab> <Plug>(completion_smart_s_tab)
+"imap <Tab> <Plug>(completion_smart_tab)
+"imap <S-Tab> <Plug>(completion_smart_s_tab)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
