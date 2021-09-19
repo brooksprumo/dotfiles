@@ -45,6 +45,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wincent/loupe'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 
+Plug 'projekt0n/github-nvim-theme'
+
 call plug#end()
 
 
@@ -277,7 +279,7 @@ let g:localvimrc_persistent = 1
 " Solarized mappings and settings
 "
 set background=dark
-colorscheme NeoSolarized
+colorscheme github_dark
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
