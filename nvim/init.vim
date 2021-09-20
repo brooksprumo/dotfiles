@@ -48,8 +48,7 @@ Plug 'projekt0n/github-nvim-theme'
 
 call plug#end()
 
-" TODO: fix color for TODO
-" TODO: make Tab launch omnifunc
+" TODO: make Tab launch omnifunc NOTE 
 " TODO: have the omnifunc listing be sorted, alphabetically
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -276,10 +275,11 @@ let g:localvimrc_persistent = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Solarized mappings and settings
+" color mappings and settings
 "
 set background=dark
 colorscheme github_dark
+highlight Todo guifg=bg guibg=DarkYellow
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
