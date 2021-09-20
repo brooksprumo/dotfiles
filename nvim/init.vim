@@ -45,6 +45,9 @@ Plug 'wincent/loupe'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 
 Plug 'projekt0n/github-nvim-theme'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'sainnhe/sonokai'
+
 
 call plug#end()
 
@@ -278,8 +281,7 @@ let g:localvimrc_persistent = 1
 " color mappings and settings
 "
 set background=dark
-colorscheme github_dark
-highlight Todo guifg=bg guibg=DarkYellow
+colorscheme sonokai
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -335,13 +337,12 @@ nnoremap <silent> <leader>ty :Clap yanks<CR>
 "
 nnoremap <silent> <leader>ll <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>ld <cmd>lua vim.lsp.buf.declaration()<CR>
-"nnoremap <silent> <leader>la :Lspsaga code_action<CR>
+nnoremap <silent> <leader>la <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> <leader>lt <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <leader>lk <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>
-"nnoremap <silent> <leader>lf :Lspsaga lsp_finder<CR>
-"nnoremap <silent> <leader>lp :Lspsaga preview_definition<CR>
+nnoremap <silent> <leader>lR <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> K          <cmd>lua vim.lsp.buf.hover()<CR>
 
 
