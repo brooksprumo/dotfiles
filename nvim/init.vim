@@ -32,6 +32,7 @@ Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/lsp_extensions.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
@@ -44,10 +45,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wincent/loupe'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 
+" colorscheme plugins
 Plug 'projekt0n/github-nvim-theme'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/sonokai'
-
 
 call plug#end()
 
@@ -81,6 +82,19 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 local pop_opts = { border = "rounded", max_width = 80 }
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
+
+
+-- Configure Treesitter
+require('nvim-treesitter.configs').setup {
+	ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true,
+	},
+}
 
 EOF
 
@@ -214,6 +228,11 @@ autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
 " do not use tabs for Meson
 "
 autocmd Filetype meson setlocal expandtab
+
+" Use Treesitter for folding
+"
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
