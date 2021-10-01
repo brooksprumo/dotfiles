@@ -26,7 +26,6 @@ Plug 'embear/vim-localvimrc'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'iCyMind/NeoSolarized'
 Plug 'itchyny/lightline.vim'
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
 Plug 'neovim/nvim-lspconfig'
@@ -49,6 +48,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', '
 Plug 'projekt0n/github-nvim-theme'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/sonokai'
+
+" telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -342,13 +345,12 @@ let g:LoupeClearHighlightMap = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Clap mappings and settings
+" Telescope mappings and settings
 "
-nnoremap <silent> <leader>tb :Clap buffers<CR>
-nnoremap <silent> <leader>tf :Clap files<CR>
-nnoremap <silent> <leader>tg :Clap grep<CR>
-nnoremap <silent> <leader>tl :Clap blines<CR>
-nnoremap <silent> <leader>ty :Clap yanks<CR>
+nnoremap <silent> <leader>tf :Telescope find_files<CR>
+nnoremap <silent> <leader>tg :Telescope live_grep<CR>
+nnoremap <silent> <leader>tb :Telescope buffers<CR>
+nnoremap <silent> <leader>t/ :Telescope current_buffer_fuzzy_find<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
