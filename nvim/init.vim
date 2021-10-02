@@ -31,6 +31,8 @@ Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/lsp_extensions.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
@@ -49,14 +51,7 @@ Plug 'projekt0n/github-nvim-theme'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/sonokai'
 
-" telescope
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
 call plug#end()
-
-" TODO: make Tab launch omnifunc NOTE 
-" TODO: have the omnifunc listing be sorted, alphabetically
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure LSP
