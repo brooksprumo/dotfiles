@@ -29,7 +29,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/lsp_extensions.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
