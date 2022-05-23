@@ -211,10 +211,6 @@ set signcolumn=yes
 "
 set updatetime=333
 
-" Show diagnostic popup on cursor hold
-"
-"autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-
 " Enable type inlay hints
 "
 autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require('lsp_extensions').inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
@@ -352,13 +348,14 @@ nnoremap <silent> <leader>t/ :Telescope current_buffer_fuzzy_find<CR>
 " LSP mappings
 "
 nnoremap <silent> <leader>ll <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <leader>ld <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <leader>la <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>lL <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <leader>lt <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <leader>lk <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <leader>lR <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <leader>la <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>ld <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap <silent> K          <cmd>lua vim.lsp.buf.hover()<CR>
 
 
