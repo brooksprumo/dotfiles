@@ -211,10 +211,6 @@ set signcolumn=yes
 "
 set updatetime=333
 
-" Enable type inlay hints
-"
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require('lsp_extensions').inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
-
 " auto-format *.rs (rust) files prior to saving them
 "
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
