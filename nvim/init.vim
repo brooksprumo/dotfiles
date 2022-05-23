@@ -28,6 +28,7 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'itchyny/lightline.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
+Plug 'mfussenegger/nvim-dap'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -35,6 +36,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context', {'do': ':TSContextEnable'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
+Plug 'simrat39/rust-tools.nvim'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -52,9 +54,9 @@ Plug 'sainnhe/sonokai'
 
 call plug#end()
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure LSP
-" https://github.com/neovim/nvim-lspconfig#rust_analyzer
 "
 lua <<EOF
 
@@ -63,8 +65,18 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
--- Enable rust_analyzer
-require('lspconfig').rust_analyzer.setup({ on_attach=on_attach })
+-- Enable rust-tools
+require('rust-tools').setup({
+	server = {
+		on_attach = on_attach,
+	},
+	tools = {
+		hover_with_actions = false,
+		inlay_hints = {
+			highlight = "NonText"
+		},
+	},
+})
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
