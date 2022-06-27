@@ -34,6 +34,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context', {'do': ':TSContextEnable'}
+Plug 'p00f/godbolt.nvim',
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 Plug 'simrat39/rust-tools.nvim'
@@ -92,7 +93,6 @@ local pop_opts = { border = "rounded" }
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
-
 -- Configure Treesitter
 require('nvim-treesitter.configs').setup {
 	ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -104,6 +104,17 @@ require('nvim-treesitter.configs').setup {
 		enable = false,
 	},
 }
+
+-- Configure Godbolt
+require('godbolt').setup({
+	languages = {
+		rust = { compiler = "beta", options = {"-C opt-level=3"} },
+    },
+	quickfix = {
+		enable = true,
+		auto_open = false,
+	},
+})
 
 EOF
 
