@@ -359,7 +359,7 @@ let g:LoupeClearHighlightMap = 1
 nnoremap <silent> <leader>tf :Telescope find_files<CR>
 nnoremap <silent> <leader>tg :Telescope live_grep<CR>
 nnoremap <silent> <leader>tb :Telescope buffers<CR>
-nnoremap <silent> <leader>t/ :Telescope current_buffer_fuzzy_find<CR>
+nnoremap <silent> <leader>/  :Telescope current_buffer_fuzzy_find<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
