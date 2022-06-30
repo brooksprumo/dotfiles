@@ -326,7 +326,7 @@ let g:lightline = {
 \			['readonly', 'relativepath', 'modified'],
 \		],
 \		'right': [
-\			['lineinfo'],
+\			['lineinfo', 'percent'],
 \			['gitbranch'],
 \			['fileformat', 'fileencoding', 'filetype'],
 \		],
@@ -338,7 +338,7 @@ let g:lightline = {
 \		'right': [],
 \	},
 \	'component_function' : {
-\		'gitbranch': 'fugitive#head',
+\		'gitbranch': 'FugitiveHead',
 \	},
 \ }
 
