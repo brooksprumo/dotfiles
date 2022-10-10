@@ -235,7 +235,7 @@ set updatetime=333
 
 " auto-format *.rs (rust) files prior to saving them
 "
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.rs lua vim.lsp.buf.format()
 
 " do not use tabs for Meson
 "
