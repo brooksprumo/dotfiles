@@ -12,6 +12,8 @@ alias "df"="df -h"
 alias "du"="du -h"
 alias "psg"="ps aux | grep"
 
+alias "git-move-diff"="git rev-parse --abbrev-ref HEAD | git show --color-moved-ws=ignore-all-space -w --patch-with-stat --color-moved"
+
 path+=~/bin
 path+=~/.gem/ruby/2.6.0/bin
 export PATH
