@@ -16,6 +16,8 @@ path+=~/bin
 path+=~/.gem/ruby/2.6.0/bin
 export PATH
 
+export EDITOR=nvim
+
 if type brew &>/dev/null; then
 	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 	autoload -Uz compinit
