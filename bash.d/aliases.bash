@@ -76,3 +76,5 @@ alias "splitape2flac"="cuebreakpoints --input-format cue --append-gaps *.cue | s
 # Fix file permissions on files and folders
 #
 alias "fixperms"="find . \( -type d ! -perm 755 -ok chmod --verbose 755 {} \; \) , \( -type f ! -name .directory ! -name .DS_Store ! -perm 644 -ok chmod --verbose 644 {} \; \)"
+
+alias "git-move-diff"="git rev-parse --abbrev-ref HEAD | git show --color-moved-ws=ignore-all-space -w --patch-with-stat --color-moved"
