@@ -47,6 +47,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wincent/loupe'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
+PLug 'zchee/vim-flatbuffers'
 
 " colorscheme plugins
 Plug 'projekt0n/github-nvim-theme'
