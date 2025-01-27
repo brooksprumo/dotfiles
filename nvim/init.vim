@@ -34,6 +34,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context', {'do': ':TSContextEnable'}
+Plug 'jmacadie/telescope-hierarchy.nvim'
 Plug 'p00f/godbolt.nvim',
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
@@ -370,7 +371,7 @@ nnoremap <silent> <leader>ll <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>lL <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <leader>lt <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <leader>lh :Telescope lsp_incoming_calls<CR>
+nnoremap <silent> <leader>lh :Telescope hierarchy incoming_calls<CR>
 nnoremap <silent> <leader>lk <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <leader>lR <cmd>lua vim.lsp.buf.rename()<CR>
