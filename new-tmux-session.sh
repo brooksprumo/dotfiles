@@ -13,9 +13,9 @@ tmux \
 	send-keys 'git log --oneline --graph -10' C-m \; \
 	\
 	new-window -n 'config' -c ~ \; \
-	send-keys 'cat ~/service-env.sh' C-m \; \
+	send-keys 'less ~/service-env.sh' C-m \; \
 	split-window -h \; \
-	send-keys 'cat ~/bin/validator.sh' C-m \; \
+	send-keys 'less ~/bin/validator.sh' C-m \; \
 	\
 	new-window -n 'logs' -c ~/logs \; \
 	send-keys 'ls -alh' C-m \; \
