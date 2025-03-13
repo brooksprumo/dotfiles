@@ -372,6 +372,7 @@ nnoremap <silent> <leader>lL <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <leader>lt <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <leader>lh :Telescope hierarchy incoming_calls<CR>
+nnoremap <silent> <leader>lH :Telescope hierarchy outgoing_calls<CR>
 nnoremap <silent> <leader>lk <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <leader>lR <cmd>lua vim.lsp.buf.rename()<CR>
