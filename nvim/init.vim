@@ -35,10 +35,10 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context', {'do': ':TSContextEnable'}
 Plug 'jmacadie/telescope-hierarchy.nvim'
+Plug 'chrisgrieser/nvim-lsp-endhints'
 Plug 'p00f/godbolt.nvim',
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
-Plug 'simrat39/rust-tools.nvim'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -68,17 +68,44 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
--- Enable rust-tools
-require('rust-tools').setup({
-	server = {
-		on_attach = on_attach,
-	},
-	tools = {
-		hover_with_actions = false,
-		inlay_hints = {
-			highlight = "NonText"
+-- Configure rust-analyzer
+require('lspconfig').rust_analyzer.setup({
+	settings = {
+		-- For more configurations, see: https://rust-analyzer.github.io/book/configuration.html
+		['rust-analyzer'] = {
+			diagnostics = {
+				enable = false,
+			},
+			inlayHints = {
+				closingBraceHints = {
+					enable = false,
+				},
+				implicitDrops = {
+					enable = false,
+				},
+			},
 		},
 	},
+})
+
+-- Configure lsp-endhints
+require('lsp-endhints').setup({
+	icons = {
+		type = "=> ", -- "󰜁 ",
+		parameter = "<- ", -- "󰏪 ",
+		--offspec = " ", -- hint kind not defined in official LSP spec
+		--unknown = " ", -- hint kind is nil
+	},
+	label = {
+		truncateAtChars = 99,
+		--padding = 1,
+		--marginLeft = 0,
+		--sameKindSeparator = ", ",
+	},
+	--extmark = {
+	--	priority = 50,
+	--},
+	--autoEnableHints = true,
 })
 
 -- Enable diagnostics
