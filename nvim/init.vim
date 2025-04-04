@@ -92,8 +92,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 -- Hover doc popup
 local pop_opts = { border = "rounded" }
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.buf.hover, pop_opts)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.buf.signature_help, pop_opts)
 
 -- Configure Treesitter
 require('nvim-treesitter.configs').setup({
