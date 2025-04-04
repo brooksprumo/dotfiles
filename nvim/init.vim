@@ -96,8 +96,8 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, po
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
 -- Configure Treesitter
-require('nvim-treesitter.configs').setup {
-	ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+require('nvim-treesitter.configs').setup({
+	ensure_installed = "all", -- a list of parser names, or "all"
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
@@ -105,7 +105,7 @@ require('nvim-treesitter.configs').setup {
 	indent = {
 		enable = false,
 	},
-}
+})
 
 -- Configure Godbolt
 require('godbolt').setup({
@@ -239,14 +239,16 @@ set updatetime=333
 "
 autocmd BufWritePre *.rs lua vim.lsp.buf.format()
 
-" do not use tabs for Meson
+" do not use tabs for these filetypes
 "
 autocmd Filetype meson setlocal expandtab
+autocmd Filetype rust setlocal expandtab
 
 " Use Treesitter for folding
 "
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+set foldlevel=999
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -315,6 +317,8 @@ let g:localvimrc_persistent = 1
 "
 set background=dark
 colorscheme sonokai
+
+highlight link InlayHints NonText
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
