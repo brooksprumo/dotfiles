@@ -408,7 +408,7 @@ nnoremap <silent> <leader>lk <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <leader>lR <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>la <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent> <leader>ld <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <silent> <leader>ld <cmd>lua vim.diagnostic.open_float()<CR>
 nnoremap <silent> K          <cmd>lua vim.lsp.buf.hover()<CR>
 
 
