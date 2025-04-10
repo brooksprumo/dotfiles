@@ -277,6 +277,9 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=999
 
+" add a border to floating windows
+"
+set winborder=rounded
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive mappings and settings
