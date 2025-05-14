@@ -1,0 +1,3 @@
+export RUSTFLAGS="-C debuginfo=full -C split-debuginfo=off -C strip=none -C force-frame-pointers=yes -C target-cpu=native"
+export CFLAGS="-g -fno-omit-frame-pointer"
+export CXXFLAGS="-g -fno-omit-frame-pointer"
