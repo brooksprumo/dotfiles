@@ -32,8 +32,8 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-context', {'do': ':TSContextEnable'}
+Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'master', 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/nvim-treesitter-context', { 'commit': 'ebee603a25f785872c49a226aa9c6e325785122a', 'do': ':TSContextEnable' }
 Plug 'jmacadie/telescope-hierarchy.nvim'
 Plug 'chrisgrieser/nvim-lsp-endhints'
 Plug 'p00f/godbolt.nvim'
