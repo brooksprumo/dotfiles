@@ -36,7 +36,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context', {'do': ':TSContextEnable'}
 Plug 'jmacadie/telescope-hierarchy.nvim'
 Plug 'chrisgrieser/nvim-lsp-endhints'
-Plug 'p00f/godbolt.nvim',
+Plug 'p00f/godbolt.nvim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
