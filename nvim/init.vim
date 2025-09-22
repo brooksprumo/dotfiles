@@ -69,7 +69,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Configure rust-analyzer
-require('lspconfig').rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
 	settings = {
 		-- For more configurations, see: https://rust-analyzer.github.io/book/configuration.html
 		['rust-analyzer'] = {
@@ -87,6 +87,7 @@ require('lspconfig').rust_analyzer.setup({
 		},
 	},
 })
+vim.lsp.enable('rust_analyzer')
 
 -- Configure lsp-endhints
 require('lsp-endhints').setup({
