@@ -26,4 +26,6 @@ tmux \
 	new-window -n 'snapshots' -c ~/ledger-snapshots \; \
 	send-keys 'ls -alh' C-m \; \
 	\
+	new-window -n 'perf' -c ~ \; \
+	\
 	select-window -t 'validator' \;
