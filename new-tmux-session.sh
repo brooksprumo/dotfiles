@@ -5,7 +5,7 @@ tmux \
 	split-window -v \; \
 	send-keys 'systemctl status sol' C-m \; \
 	split-window -v \; \
-	send-keys 'agave-validator monitor' C-m \; \
+	send-keys '~/src/agave/target/release-with-debug/agave-validator monitor' C-m \; \
 	\
 	new-window -n 'src' -c ~/src/agave \; \
 	send-keys 'ls -alh' C-m \; \
@@ -27,5 +27,6 @@ tmux \
 	send-keys 'ls -alh' C-m \; \
 	\
 	new-window -n 'perf' -c ~ \; \
+	send-keys './slowlana --help' C-m \; \
 	\
 	select-window -t 'validator' \;
