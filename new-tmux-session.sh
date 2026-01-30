@@ -5,12 +5,12 @@ tmux \
 	split-window -v \; \
 	send-keys 'systemctl status sol' C-m \; \
 	split-window -v \; \
-	send-keys '~/src/agave/target/release-with-debug/agave-validator monitor' C-m \; \
+	send-keys '~/bin/validator.sh monitor' C-m \; \
 	\
 	new-window -n 'src' -c ~/src/agave \; \
 	send-keys 'ls -alh' C-m \; \
 	send-keys 'git status' C-m \; \
-	send-keys 'git log --oneline --graph -10' C-m \; \
+	send-keys 'git log --oneline -22' C-m \; \
 	\
 	new-window -n 'config' -c ~ \; \
 	send-keys 'less ~/service-env.sh' C-m \; \
