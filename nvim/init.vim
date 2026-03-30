@@ -275,7 +275,7 @@ autocmd Filetype rust setlocal expandtab
 " Use Treesitter for folding
 "
 set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+set foldexpr=v:lua.vim.treesitter.foldexpr()
 set foldlevel=999
 
 " add a border to floating windows
