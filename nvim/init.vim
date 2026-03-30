@@ -134,7 +134,7 @@ require('nvim-treesitter.configs').setup({
 require('godbolt').setup({
 	languages = {
 		rust = { compiler = "stable", options = {"-C opt-level=3"} },
-    },
+	},
 	quickfix = {
 		enable = true,
 		auto_open = false,
