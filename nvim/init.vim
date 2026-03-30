@@ -112,15 +112,16 @@ vim.diagnostic.config({
 })
 
 -- Configure Treesitter
-require('nvim-treesitter.configs').setup({
-	ensure_installed = "all", -- a list of parser names, or "all"
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
-	indent = {
-		enable = false,
-	},
+require('nvim-treesitter').setup({
+	install_dir = vim.fn.stdpath('data') .. '/site',
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = '*',
+	callback = function(args)
+		pcall(vim.treesitter.start, args.buf)
+		--vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
 })
 
 -- Configure Godbolt
