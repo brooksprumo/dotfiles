@@ -63,11 +63,6 @@ call plug#end()
 "
 lua <<EOF
 
--- function to attach completion when setting up lsp
-local on_attach = function(client, bufnr)
-	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-end
-
 -- Configure rust-analyzer
 vim.lsp.config('rust_analyzer', {
 	settings = {
