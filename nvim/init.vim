@@ -326,7 +326,7 @@ let g:localvimrc_persistent = 1
 set background=dark
 colorscheme sonokai
 
-highlight link InlayHints NonText
+highlight link LspInlayHint NonText
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
