@@ -36,7 +36,6 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-context', { 'do': ':TSContext enable' }
 Plug 'jmacadie/telescope-hierarchy.nvim'
 Plug 'chrisgrieser/nvim-lsp-endhints'
-Plug 'p00f/godbolt.nvim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeCWD', 'NERDTreeMirror'] }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
@@ -122,17 +121,6 @@ vim.api.nvim_create_autocmd('FileType', {
 		pcall(vim.treesitter.start, args.buf)
 		--vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 	end,
-})
-
--- Configure Godbolt
-require('godbolt').setup({
-	languages = {
-		rust = { compiler = "stable", options = {"-C opt-level=3"} },
-	},
-	quickfix = {
-		enable = true,
-		auto_open = false,
-	},
 })
 
 EOF
