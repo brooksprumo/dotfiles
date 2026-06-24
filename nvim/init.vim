@@ -27,7 +27,6 @@ Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'iCyMind/NeoSolarized'
 Plug 'itchyny/lightline.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'mesonbuild/meson', { 'rtp': 'data/syntax-highlighting/vim' }
 Plug 'mfussenegger/nvim-dap'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
