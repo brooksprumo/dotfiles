@@ -32,7 +32,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
-Plug 'nvim-treesitter/nvim-treesitter-context', { 'do': ':TSContext enable' }
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'jmacadie/telescope-hierarchy.nvim'
 Plug 'chrisgrieser/nvim-lsp-endhints'
 Plug 'scrooloose/nerdcommenter'
